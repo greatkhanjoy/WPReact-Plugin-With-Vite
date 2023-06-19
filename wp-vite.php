@@ -27,6 +27,10 @@ class WPViteReact
     // function shortocode render()
     public function wp_vite_react_render_shortcode()
     {
+        wp_enqueue_script('wp-vite-react-core');
+        wp_enqueue_style('wp-vite-react-script');
+        // wp_enqueue_style('wp-vite-react-style');
+
         return '<div id="wpvite-frontend"></div>';
     }
 
@@ -67,6 +71,10 @@ class WPViteReact
     // Admin page render
     function loadAdminPage()
     {
+        wp_enqueue_script('wp-vite-react-core');
+        wp_enqueue_script('wp-vite-react-script');
+        // wp_enqueue_style('wp-vite-react-style');
+
         $pluginUrl = plugin_dir_url(__FILE__);
         wp_localize_script('wp-vite-react-core', 'wpvitereact', [
             'url' => $pluginUrl,
@@ -78,13 +86,13 @@ class WPViteReact
     // Load assets  for admin and frontend
     function loadAssets()
     {
-        // wp_enqueue_script('wp-vite-react-core', plugins_url('dist/assets/index-0340b01b.js', __FILE__), [], time(), true);
-        // wp_enqueue_style('wp-vite-react-style', plugins_url('dist/assets/index-f25b5597.css', __FILE__), [], time(), 'all');
+        // wp_register_script('wp-vite-react-core', plugins_url('dist/assets/index-0340b01b.js', __FILE__), [], time(), true);
+        // wp_register_style('wp-vite-react-style', plugins_url('dist/assets/index-f25b5597.css', __FILE__), [], time(), 'all');
 
-        wp_enqueue_script('wp-vite-react-core', 'http://localhost:5173/src/main.jsx', ['wp-vite-react-script'], time(), true);
+        wp_register_script('wp-vite-react-core', 'http://localhost:5173/src/main.jsx', ['wp-vite-react-script'], time(), true);
 
 
-        wp_enqueue_script(
+        wp_register_script(
             'wp-vite-react-script',
             'http://localhost:5173/@react-refresh',
             [],
