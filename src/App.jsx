@@ -19,7 +19,6 @@ const App = () => {
           </Route>
         </Routes>
       </HashRouter>
-      <Dashboard />
     </>
   );
 };
