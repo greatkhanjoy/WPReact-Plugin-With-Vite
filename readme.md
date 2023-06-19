@@ -23,25 +23,28 @@ npm install
 npm run dev
 ```
 
-### For production
+# For production
+
+### Step 1
 ```
 npm run build
 ```
+### Step 2
 in wp-vite.php file replace the loadAssets funtion with this :
 ```php
 function loadAssets()
     {
-        wp_enqueue_script('wp-vite-react-core', plugins_url('dist/assets/[your-js-filename].js', __FILE__), [], time(), true);
-        wp_enqueue_style('wp-vite-react-style', plugins_url('dist/assets/[your-css-filename].css', __FILE__), [], time(), 'all');
+        wp_register_script('wp-vite-react-core', plugins_url('dist/assets/[your-js-filename].js', __FILE__), [], time(), true);
+        wp_register_script('wp-vite-react-style', plugins_url('dist/assets/[your-css-filename].css', __FILE__), [], time(), 'all');
 
     }
 ```
+### Step 3
+replace the [your-js-filename].js with the js file which is inside  dist/assets/
 
-#### replace the [your-js-filename].js with the js file which is inside  dist/assets/
-
-#### and replace the [your-css-filename] with css file which is inside dist/assets/
-
-#### And uncomment the enqueue_style on lines 32 and 76
+and replace the [your-css-filename] with css file which is inside dist/assets/
+### Steap 4
+uncomment the enqueue_style on lines 32 and 76
 
 #### use app.jsx file for Dashboard and Frontend.jsx for Frontend
 
