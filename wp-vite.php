@@ -31,7 +31,7 @@ class WPViteReact
         wp_enqueue_style('wp-vite-react-script');
         // wp_enqueue_style('wp-vite-react-style');
 
-        return '<div id="wpvite-frontend"></div>';
+        include_once(plugin_dir_path(__FILE__) . "/inc/frontend.php");
     }
 
     // function load script as module
@@ -65,7 +65,7 @@ class WPViteReact
     // Add admin menu
     function adminMenu()
     {
-        add_menu_page('WPViteReact', 'WPViteReact', 'manage_options', 'admin/admin.php', [$this, 'loadAdminPage'], 'dashicons-tickets', 6);
+        add_menu_page('WP React', 'WP React', 'manage_options', 'admin/admin.php', [$this, 'loadAdminPage'], 'dashicons-vault', 6);
     }
 
     // Admin page render
@@ -80,6 +80,7 @@ class WPViteReact
             'url' => $pluginUrl,
             'nonce' => wp_create_nonce('wp_rest'),
         ]);
+
         include_once(plugin_dir_path(__FILE__) . "/inc/admin.php");
     }
 
