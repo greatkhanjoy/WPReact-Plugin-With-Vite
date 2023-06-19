@@ -47,7 +47,7 @@ class WPViteReact
             return $tag;
         }
         $tag = '
-        <script type="module" >
+        <script type="module" crossorigin >
         import RefreshRuntime from "' . esc_url($src) . '";
         RefreshRuntime.injectIntoGlobalHook(window);
         window.$RefreshReg$ = () => {};
@@ -78,6 +78,8 @@ class WPViteReact
     // Load assets  for admin and frontend
     function loadAssets()
     {
+        // wp_enqueue_script('wp-vite-react-core', plugins_url('dist/assets/index-0340b01b.js', __FILE__), [], time(), true);
+        // wp_enqueue_style('wp-vite-react-style', plugins_url('dist/assets/index-f25b5597.css', __FILE__), [], time(), 'all');
 
         wp_enqueue_script('wp-vite-react-core', 'http://localhost:5173/src/main.jsx', ['wp-vite-react-script'], time(), true);
 
